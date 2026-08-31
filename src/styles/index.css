@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { @apply bg-paper text-ink font-body antialiased; }
+::selection { background: #1FE0A8; color: #0A0F1D; }
+
+.container-a { @apply max-w-[1320px] mx-auto px-5 sm:px-7 lg:px-10; }
+.eyebrow { @apply font-mono text-[10px] tracking-[0.2em] uppercase text-signal; }
+.h-display { @apply font-display font-medium tracking-[-0.035em]; }
+.divider-line { @apply w-full h-px bg-lineDark; }
+.card-hover { transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s ease, box-shadow .35s ease; }
+.card-hover:hover { transform: translateY(-5px); }
+
+.paper-grid {
+  background-image: linear-gradient(rgba(10,15,29,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(10,15,29,.045) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.dark-grid {
+  background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.text-balance { text-wrap: balance; }
+
+:focus-visible { outline: 2px solid #1FE0A8; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}
