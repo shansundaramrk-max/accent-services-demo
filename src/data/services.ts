@@ -46,7 +46,7 @@ export const services: Service[] = [
     name: 'Managed IT Services',
     shortName: 'Managed IT',
     tagline: 'Your IT should be managed before it becomes a problem.',
-    summary: 'Accent provides proactive IT management designed to keep your infrastructure secure, available and performing reliably — so issues get caught before they interrupt anyone\'s work.',
+    summary: 'Ascent provides proactive IT management designed to keep your infrastructure secure, available and performing reliably — so issues get caught before they interrupt anyone\'s work.',
     capabilities: [
       { title: 'Infrastructure', items: ['Servers', 'Network infrastructure', 'Storage', 'Virtualization', 'Cloud infrastructure'] },
       { title: 'Endpoints', items: ['Desktops', 'Laptops', 'Mobile devices', 'Workstations'] },
@@ -306,7 +306,7 @@ export const services: Service[] = [
     ],
     outcomes: ['An internal team that can self-serve routine administration', 'Lower reliance on external support for day-to-day tasks', 'Faster, smoother rollout of new systems'],
     faq: [
-      { q: 'Is training limited to systems Accent implemented?', a: 'No — we can train your team on platforms we manage for you or on tools you already run in-house, scoped to what you need covered.' },
+      { q: 'Is training limited to systems Ascent implemented?', a: 'No — we can train your team on platforms we manage for you or on tools you already run in-house, scoped to what you need covered.' },
       { q: 'Can training be customized to our team\'s skill level?', a: 'Yes — sessions are scoped after a short needs discussion so content matches where your team actually is, not a generic curriculum.' },
     ],
   },
@@ -331,7 +331,7 @@ export const services: Service[] = [
     ],
     outcomes: ['Software configured around your process, not the reverse', 'Departments working from one connected system instead of spreadsheets', 'Faster adoption because the team was trained, not just handed a login'],
     faq: [
-      { q: 'Are you an official Zoho partner?', a: 'We\'ll confirm current certification and partner status directly — ask your Accent contact for our latest partner documentation.' },
+      { q: 'Are you an official Zoho partner?', a: 'We\'ll confirm current certification and partner status directly — ask your Ascent contact for our latest partner documentation.' },
       { q: 'Can you migrate us from a different CRM to Zoho?', a: 'Yes, including data migration, workflow rebuilding and integration mapping so nothing gets lost in the switch.' },
     ],
   },
@@ -555,7 +555,7 @@ export const services: Service[] = [
     ],
     outcomes: ['A prioritized list of where AI will actually save time or money', 'Avoided spend on AI projects that wouldn\'t have worked', 'A realistic phased plan instead of an all-at-once bet'],
     faq: [
-      { q: 'Do you only recommend Accent-built solutions?', a: 'No — where a smaller, off-the-shelf tool solves the problem better than a custom build, we\'ll say so.' },
+      { q: 'Do you only recommend Ascent-built solutions?', a: 'No — where a smaller, off-the-shelf tool solves the problem better than a custom build, we\'ll say so.' },
     ],
   },
 
@@ -674,7 +674,7 @@ export const services: Service[] = [
 ]
 
 // Representative imagery per category (used on service pages and solution cards).
-// Swap for Accent's own photography before launch.
+// Swap for Ascent's own photography before launch.
 const categoryImages: Record<CategoryKey, string> = {
   'it-solutions': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1400&q=80',
   'business-software': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80',
@@ -684,7 +684,7 @@ const categoryImages: Record<CategoryKey, string> = {
 
 const serviceImageOverrides: Partial<Record<string, string>> = {
   // Reuses only verified, working photo IDs already vetted for this project — swap for
-  // Accent's own photography before launch (see README).
+  // Ascent's own photography before launch (see README).
   'cybersecurity': 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1400&q=80',
   'cloud-solutions': 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1400&q=80',
   'network-connectivity': 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1400&q=80',

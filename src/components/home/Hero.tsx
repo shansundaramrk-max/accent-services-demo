@@ -25,7 +25,7 @@ export default function Hero() {
               Make technology feel <span className="text-signal">simpler.</span>
             </h1>
             <p className="mt-7 max-w-2xl text-base sm:text-lg leading-8 text-white/60">
-              Accent brings the people, systems and technical skills behind your business together — from everyday IT support to automation, software delivery and security.
+              Ascent brings the people, systems and technical skills behind your business together — from everyday IT support to automation, software delivery and security.
             </p>
             <div className="flex flex-wrap gap-3 mt-9">
               <Button to="/contact">Tell us what you need</Button>

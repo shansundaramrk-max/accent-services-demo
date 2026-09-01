@@ -2,7 +2,7 @@ import Hero from '@/components/home/Hero'
 import TrustBar from '@/components/home/TrustBar'
 import NeedSelector from '@/components/home/NeedSelector'
 import Outcomes from '@/components/home/Outcomes'
-import WhyAccent from '@/components/home/WhyAccent'
+import WhyAscent from '@/components/home/WhyAscent'
 import Ecosystem from '@/components/home/Ecosystem'
 import CaseStudyPreview from '@/components/home/CaseStudyPreview'
 import Testimonials from '@/components/home/Testimonials'
@@ -15,7 +15,7 @@ export default function Home() {
       <TrustBar />
       <NeedSelector />
       <Outcomes />
-      <WhyAccent />
+      <WhyAscent />
       <Ecosystem />
       <CaseStudyPreview />
       <Testimonials />

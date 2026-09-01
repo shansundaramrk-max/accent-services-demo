@@ -19,7 +19,7 @@ function get(id: string) { return nodes.find((n) => n.id === id)! }
 
 export default function NodeGraph({ className = '' }: { className?: string }) {
   return (
-    <svg viewBox="0 0 580 420" className={className} role="img" aria-label="Accent connects IT, Cloud, Security, AI and QA into one business outcome">
+    <svg viewBox="0 0 580 420" className={className} role="img" aria-label="Ascent connects IT, Cloud, Security, AI and QA into one business outcome">
       <defs>
         <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="#1FE0A8" stopOpacity="0.35" />

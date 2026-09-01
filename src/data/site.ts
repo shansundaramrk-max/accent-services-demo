@@ -1,9 +1,10 @@
 export const site = {
-  name: 'Accent Services',
-  shortName: 'Accent',
+  name: 'Ascent Services',
+  shortName: 'Ascent',
   tagline: 'One technology partner. Every capability your business runs on.',
   phone: '+61 2 8000 1234',
-  email: 'hello@accentservices.com.au',
+  whatsapp: '61280001234',
+  email: 'hello@ascentservices.com.au',
   address: 'Level 12, 60 Margaret St, Sydney NSW 2000',
   addressSecondary: 'Melbourne · Brisbane · Remote across Australia',
   hours: 'Mon–Fri, 8am–7pm AEST · 24/7 for critical incidents',
@@ -19,14 +20,14 @@ export const trustStats = [
 
 export const testimonials = [
   {
-    quote: 'Accent took over our IT within a fortnight and our support tickets dropped by half in the first quarter. They talk to us like a partner, not a call centre.',
+    quote: 'Ascent took over our IT within a fortnight and our support tickets dropped by half in the first quarter. They talk to us like a partner, not a call centre.',
     name: 'Sarah Whitfield',
     role: 'Operations Director, Northbridge Retail Group',
     location: 'Sydney, NSW',
     avatar: 'https://i.pravatar.cc/150?img=47',
   },
   {
-    quote: "We needed a security posture that would satisfy our enterprise clients' due diligence. Accent mapped us against the Essential Eight and closed every gap within two months.",
+    quote: "We needed a security posture that would satisfy our enterprise clients' due diligence. Ascent mapped us against the Essential Eight and closed every gap within two months.",
     name: 'Daniel Ho',
     role: 'CTO, Meridian Financial Services',
     location: 'Melbourne, VIC',
@@ -94,9 +95,7 @@ export const nav: NavGroup[] = [
     label: 'IT Solutions',
     to: '/solutions#it-solutions',
     children: [
-      { label: 'Managed IT Services', to: '/solutions/managed-it-services' },
-      { label: 'IT Support & Helpdesk', to: '/solutions/it-support-helpdesk' },
-      { label: 'IT Infrastructure', to: '/solutions/it-infrastructure' },
+                  { label: 'IT Infrastructure', to: '/solutions/it-infrastructure' },
       { label: 'Cloud Solutions', to: '/solutions/cloud-solutions' },
       { label: 'Cybersecurity', to: '/solutions/cybersecurity' },
       { label: 'IT Asset Management', to: '/solutions/it-asset-management' },
@@ -104,17 +103,15 @@ export const nav: NavGroup[] = [
       { label: 'Active Directory Management', to: '/solutions/active-directory-management' },
       { label: 'Backup & Disaster Recovery', to: '/solutions/backup-disaster-recovery' },
       { label: 'Network & Connectivity', to: '/solutions/network-connectivity' },
-      { label: 'IT Training', to: '/solutions/it-training' },
+      { label: 'ITSM Solutions', to: '/solutions/itsm' },
     ],
   },
   {
-    label: 'Business Software',
+    label: 'Business Solutions',
     to: '/solutions#business-software',
     children: [
-      { label: 'Zoho Solutions', to: '/solutions/zoho-solutions' },
-      { label: 'ManageEngine Solutions', to: '/solutions/manageengine-solutions' },
-      { label: 'CRM Implementation', to: '/solutions/crm-implementation' },
-      { label: 'ITSM', to: '/solutions/itsm' },
+            { label: 'ManageEngine Solutions', to: '/solutions/manageengine-solutions' },
+            { label: 'ITSM', to: '/solutions/itsm' },
       { label: 'Business Automation', to: '/solutions/business-process-automation' },
       { label: 'Software Integration', to: '/solutions/software-integration' },
     ],
@@ -145,11 +142,11 @@ export const nav: NavGroup[] = [
 
 export const footerLinks = {
   'IT Solutions': nav[0].children!,
-  'Business Software': nav[1].children!,
+  'Business Solutions': nav[1].children!,
   'AI & Automation': nav[2].children!,
   'Software Engineering': nav[3].children!,
   Company: [
-    { label: 'About Accent', to: '/about' },
+    { label: 'About Ascent', to: '/about' },
     { label: 'Industries', to: '/industries' },
     { label: 'Contact', to: '/contact' },
   ],
