@@ -1,35 +1,95 @@
+import { site, footerLinks } from '@/data/site'
 import { Link } from 'react-router-dom'
-import { footerLinks, site } from '@/data/site'
 
 export default function Footer() {
   return (
-    <footer className="bg-ink text-white pt-16 lg:pt-20 pb-8">
-      <div className="container-a">
-        <div className="grid lg:grid-cols-[1.2fr_2fr] gap-14 pb-14">
+    <footer className="bg-ink text-white">
+      <div className="container-a py-16 lg:py-20">
+        <div className="grid lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-12">
           <div>
-            <Link to="/" className="flex items-center gap-3 font-display text-lg mb-5">
-              <span className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center"><span className="w-2 h-2 rounded-full bg-signal" /></span>
-              {site.name}
-            </Link>
-            <p className="text-white/45 text-sm max-w-sm leading-6">{site.tagline}</p>
-            <div className="mt-7 space-y-1.5 text-sm text-white/55">
-              <p>{site.email}</p><p>{site.phone}</p><p>{site.address}</p>
+            <p className="font-display text-2xl">{site.name}</p>
+
+            <p className="text-white/45 text-sm max-w-sm leading-6 mt-4">
+              Practical technology, business solutions and automation that help
+              organisations work better.
+            </p>
+
+            <div className="mt-6">
+              <p className="font-mono text-[10px] tracking-[.18em] text-white/40">
+                MOBILE
+              </p>
+
+              <a
+                href={`tel:${site.phone.replace(/\s/g, '')}`}
+                className="font-display text-lg mt-1 inline-block hover:text-signal transition-colors"
+              >
+                {site.phone}
+              </a>
             </div>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
-            {Object.entries(footerLinks).map(([group, links]) => (
-              <div key={group}>
-                <p className="eyebrow mb-4">{group}</p>
-                <ul className="space-y-2.5">
-                  {links.slice(0, group === 'Company' ? 3 : 5).map((l) => <li key={l.to}><Link to={l.to} className="text-white/50 text-sm hover:text-white transition-colors">{l.label}</Link></li>)}
-                </ul>
-              </div>
-            ))}
+
+          <div>
+            <p className="eyebrow text-white/40 mb-5">IT SOLUTIONS</p>
+
+            <div className="space-y-3">
+              {footerLinks['IT Solutions'].map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                  className="block text-sm text-white/55 hover:text-white transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="eyebrow text-white/40 mb-5">BUSINESS SOLUTIONS</p>
+
+            <div className="space-y-3">
+              {footerLinks['Business Solutions'].map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                  className="block text-sm text-white/55 hover:text-white transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="eyebrow text-white/40 mb-5">COMPANY</p>
+
+            <div className="space-y-3">
+              {footerLinks.Company.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                  className="block text-sm text-white/55 hover:text-white transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="pt-7 border-t border-line flex flex-col sm:flex-row justify-between gap-3 text-white/35 text-xs">
-          <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
-          <p>Australian technology services · Support across Australia</p>
+
+        <div className="border-t border-white/10 mt-14 pt-6 flex flex-col sm:flex-row justify-between gap-3">
+          <p className="text-white/30 text-xs">
+            © {new Date().getFullYear()} {site.name}. All rights reserved.
+          </p>
+
+          <a
+            href={`https://wa.me/${site.whatsappNumber}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/40 text-xs hover:text-white transition-colors"
+          >
+            WhatsApp: {site.phone}
+          </a>
         </div>
       </div>
     </footer>

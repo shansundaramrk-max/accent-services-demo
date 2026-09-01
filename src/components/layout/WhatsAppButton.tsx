@@ -2,8 +2,11 @@ import { MessageCircle } from 'lucide-react'
 import { site } from '@/data/site'
 
 export default function WhatsAppButton() {
-  const message = encodeURIComponent(`Hi Ascent Services, I'd like to learn more about your IT and business solutions.`)
-  const href = `https://wa.me/${site.whatsapp}?text=${message}`
+  const message = encodeURIComponent(
+    "Hi Ascent Services, I'd like to learn more about your IT and business solutions."
+  )
+
+  const href = `https://wa.me/${site.whatsappNumber}?text=${message}`
 
   return (
     <a
