@@ -114,10 +114,6 @@ export const nav: NavGroup[] = [
     to: '/solutions#it-solutions',
     children: [
       {
-        label: 'IT Infrastructure',
-        to: '/solutions/it-infrastructure',
-      },
-      {
         label: 'Cloud Solutions',
         to: '/solutions/cloud-solutions',
       },
@@ -134,16 +130,16 @@ export const nav: NavGroup[] = [
         to: '/solutions/endpoint-management',
       },
       {
+        label: 'Observability & ITOM',
+        to: '/solutions/observability-itom',
+      },
+      {
         label: 'Active Directory Management',
         to: '/solutions/active-directory-management',
       },
       {
         label: 'Backup & Disaster Recovery',
         to: '/solutions/backup-disaster-recovery',
-      },
-      {
-        label: 'Network & Connectivity',
-        to: '/solutions/network-connectivity',
       },
       {
         label: 'ITSM Solutions',

@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container-a py-16 lg:py-20">
         <div className="grid lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-12">
           <div>
-            <p className="font-display text-2xl">{site.name}</p>
+            <img src="/ascent-logo.svg" alt={site.name} className="w-[190px] h-auto" />
 
             <p className="text-white/45 text-sm max-w-sm leading-6 mt-4">
               Practical technology, business solutions and automation that help

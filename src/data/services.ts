@@ -19,7 +19,7 @@ export interface Service {
 export const categoryMeta: Record<CategoryKey, { label: string; description: string; anchor: string }> = {
   'it-solutions': {
     label: 'IT Solutions',
-    description: 'The operational layer — infrastructure, endpoints, support and security kept running and accountable.',
+    description: 'The operational layer — endpoints, support, security and visibility kept running and accountable.',
     anchor: 'it-solutions',
   },
   'business-software': {
@@ -46,23 +46,23 @@ export const services: Service[] = [
     name: 'Managed IT Services',
     shortName: 'Managed IT',
     tagline: 'Your IT should be managed before it becomes a problem.',
-    summary: 'Ascent provides proactive IT management designed to keep your infrastructure secure, available and performing reliably — so issues get caught before they interrupt anyone\'s work.',
+    summary: 'Ascent provides proactive IT management designed to keep your technology environment secure, available and performing reliably — so issues get caught before they interrupt anyone\'s work.',
     capabilities: [
-      { title: 'Infrastructure', items: ['Servers', 'Network infrastructure', 'Storage', 'Virtualization', 'Cloud infrastructure'] },
+      { title: 'Technology operations', items: ['Servers', 'Storage', 'Virtualization', 'Cloud services', 'System monitoring'] },
       { title: 'Endpoints', items: ['Desktops', 'Laptops', 'Mobile devices', 'Workstations'] },
       { title: 'Users', items: ['User provisioning', 'Access management', 'Password support', 'Onboarding and offboarding'] },
       { title: 'Security', items: ['Endpoint protection', 'Patch management', 'Security policies', 'Continuous monitoring'] },
       { title: 'Service management', items: ['Helpdesk', 'Incident management', 'SLA management', 'Reporting', 'Knowledge base'] },
     ],
     process: [
-      { title: 'Baseline & audit', detail: 'We inventory infrastructure, endpoints, licensing and current pain points before touching anything, so the plan is built on what\'s actually there.' },
+      { title: 'Baseline & audit', detail: 'We inventory technology, endpoints, licensing and current pain points before touching anything, so the plan is built on what\'s actually there.' },
       { title: 'Stabilize', detail: 'Patch, secure and document the environment first — most engagements start by fixing the backlog, not adding new tooling on top of an unstable base.' },
       { title: 'Monitor & maintain', detail: 'Ongoing monitoring, patching and helpdesk support run on agreed SLAs, with issues caught and triaged before they\'re reported to you.' },
       { title: 'Review & report', detail: 'Monthly reporting covers what broke, what was fixed, and what\'s coming next — so you always know the state of your environment.' },
     ],
     outcomes: ['Fewer unplanned outages', 'Faster resolution when something does break', 'One accountable partner instead of scattered vendors', 'Clear reporting on what was fixed and what\'s next'],
     faq: [
-      { q: 'Do you replace our internal IT person, or work alongside them?', a: 'Both models work. We can run IT end to end, or sit alongside an internal team and take the operational load — infrastructure, patching, monitoring — off their plate.' },
+      { q: 'Do you replace our internal IT person, or work alongside them?', a: 'Both models work. We can run IT end to end, or sit alongside an internal team and take the operational load — patching, monitoring and maintenance — off their plate.' },
       { q: 'How fast do you respond to an incident?', a: 'Response times are set per SLA tier and confirmed in writing before we start, based on severity and business impact.' },
       { q: 'Can you support a hybrid environment — some cloud, some on-prem?', a: 'Yes. Most of the businesses we support run a mix, and our monitoring and management stack is built for that.' },
     ],
@@ -90,29 +90,6 @@ export const services: Service[] = [
     faq: [
       { q: 'What counts as a ticket versus a project?', a: 'Day-to-day breakages, access requests and how-to questions are helpdesk tickets. Larger changes — a new system rollout, an office move — are scoped separately as a project.' },
       { q: 'Can employees reach the helpdesk directly, or does it go through IT admin first?', a: 'Employees can raise tickets directly through the portal, phone or email — no internal gatekeeping required.' },
-    ],
-  },
-  {
-    slug: 'it-infrastructure',
-    category: 'it-solutions',
-    name: 'IT Infrastructure',
-    shortName: 'Infrastructure',
-    tagline: 'The foundation everything else runs on.',
-    summary: 'Design, deployment and ongoing management of the servers, storage and virtualization layer your applications and data depend on.',
-    capabilities: [
-      { title: 'Design & deployment', items: ['Server sizing and architecture', 'Storage planning', 'Virtualization (VMware, Hyper-V)', 'Data center and rack setup'] },
-      { title: 'Operations', items: ['Capacity monitoring', 'Firmware and lifecycle management', 'High-availability configuration', 'Documentation and runbooks'] },
-      { title: 'Modernization', items: ['Legacy hardware refresh', 'On-prem to cloud migration planning', 'Consolidation of sprawling environments'] },
-    ],
-    process: [
-      { title: 'Assess current state', detail: 'We audit existing servers, storage and virtualization to understand real capacity, age and single points of failure.' },
-      { title: 'Design for actual load', detail: 'Architecture is sized against your measured usage and growth plans, not a generic sizing template.' },
-      { title: 'Deploy & migrate', detail: 'Builds, migrations and cutovers are scheduled around your business hours to minimise disruption.' },
-      { title: 'Document & hand over', detail: 'Every environment ships with runbooks and diagrams, so your team — or ours — can operate it without guesswork.' },
-    ],
-    outcomes: ['Infrastructure sized for actual load, not guesswork', 'Reduced risk of a single point of failure', 'A documented environment your team can hand over cleanly'],
-    faq: [
-      { q: 'Do you work with our existing hardware or require a rebuild?', a: 'We assess what you have first. Most engagements start with optimizing the current environment, with a rebuild only where it\'s genuinely the better economics.' },
     ],
   },
   {
@@ -261,78 +238,6 @@ export const services: Service[] = [
     faq: [
       { q: 'How often should backups be tested?', a: 'We recommend quarterly recovery drills at minimum, more frequently for systems where downtime is most costly.' },
       { q: 'What\'s the difference between backup and disaster recovery?', a: 'Backup protects the data. Disaster recovery is the plan for getting the whole business back online — people, systems and data together — after a major disruption.' },
-    ],
-  },
-  {
-    slug: 'network-connectivity',
-    category: 'it-solutions',
-    name: 'Network & Connectivity',
-    shortName: 'Network',
-    tagline: 'A network that stays out of the way.',
-    summary: 'Design, deployment and monitoring of the wired, wireless and WAN infrastructure that connects your offices, people and systems.',
-    capabilities: [
-      { title: 'Design & deployment', items: ['LAN and Wi-Fi design', 'SD-WAN and multi-site connectivity', 'VPN setup for remote access'] },
-      { title: 'Monitoring', items: ['Uptime and performance monitoring', 'Bandwidth analysis', 'Proactive fault detection'] },
-      { title: 'Security', items: ['Firewall management', 'Network segmentation', 'Guest network isolation'] },
-    ],
-    process: [
-      { title: 'Survey & assess', detail: 'We map current coverage, bandwidth usage and pain points across every site before proposing changes.' },
-      { title: 'Design the topology', detail: 'LAN, Wi-Fi, SD-WAN and VPN architecture are designed around your actual traffic patterns and growth plans.' },
-      { title: 'Deploy & segment', detail: 'Rollout is staged by site, with network segmentation and guest isolation built in from day one, not retrofitted.' },
-      { title: 'Monitor continuously', detail: 'Uptime, performance and security are monitored centrally, so a dead access point or saturated link is flagged before users complain.' },
-    ],
-    outcomes: ['Fewer dropped connections and dead Wi-Fi zones', 'Secure remote access for distributed teams', 'A network that scales when you open a new site'],
-    faq: [
-      { q: 'Can you manage multi-site connectivity between offices?', a: 'Yes — SD-WAN and site-to-site VPN configuration are core to this service, including monitoring across all locations from one view.' },
-    ],
-  },
-
-  {
-    slug: 'it-training',
-    category: 'it-solutions',
-    name: 'IT Training',
-    shortName: 'IT Training',
-    tagline: 'A tool is only as good as the team using it.',
-    summary: 'Onsite, online and classroom training on the platforms we deploy — so your team can actually run day-to-day operations instead of calling us for every task.',
-    capabilities: [
-      { title: 'Formats', items: ['Onsite hands-on training', 'Live online training', 'Classroom / webinar sessions', 'Custom training packages'] },
-      { title: 'Coverage', items: ['Platform administration training', 'End-user training', 'Train-the-trainer sessions for internal IT'] },
-    ],
-    process: [
-      { title: 'Assess current skill level', detail: 'A short discussion establishes what your team already knows, so training isn\'t pitched too high or too low.' },
-      { title: 'Choose the format', detail: 'Onsite, live online, classroom or a custom blend — the format is chosen around your team\'s schedule and learning style.' },
-      { title: 'Deliver hands-on sessions', detail: 'Training is hands-on against the actual platform your team will use, not generic slides.' },
-      { title: 'Follow up & reinforce', detail: 'Follow-up materials and a check-in after go-live confirm the training actually stuck.' },
-    ],
-    outcomes: ['An internal team that can self-serve routine administration', 'Lower reliance on external support for day-to-day tasks', 'Faster, smoother rollout of new systems'],
-    faq: [
-      { q: 'Is training limited to systems Ascent implemented?', a: 'No — we can train your team on platforms we manage for you or on tools you already run in-house, scoped to what you need covered.' },
-      { q: 'Can training be customized to our team\'s skill level?', a: 'Yes — sessions are scoped after a short needs discussion so content matches where your team actually is, not a generic curriculum.' },
-    ],
-  },
-
-  // BUSINESS SOFTWARE
-  {
-    slug: 'zoho-solutions',
-    category: 'business-software',
-    name: 'Zoho Solutions',
-    shortName: 'Zoho',
-    tagline: 'Make your business software work harder.',
-    summary: 'Implementation, customization and integration across the Zoho suite — configured to match your actual workflows, not the default templates.',
-    capabilities: [
-      { title: 'Applications covered', items: ['Zoho CRM', 'Zoho Desk', 'Zoho Books', 'Zoho Projects', 'Zoho Creator', 'Zoho People', 'Zoho Analytics', 'Zoho Flow'] },
-      { title: 'Services', items: ['Implementation and setup', 'Custom module and workflow design', 'Data migration', 'Third-party integrations', 'Ongoing administration and support', 'Team training'] },
-    ],
-    process: [
-      { title: 'Map your workflow', detail: 'We document how your team actually works before configuring anything, so the system fits the process instead of forcing a rebuild of it.' },
-      { title: 'Configure & customize', detail: 'Modules, custom fields and workflows are built against that map — not left as Zoho\'s default templates.' },
-      { title: 'Migrate data', detail: 'Existing records are cleaned and migrated in, with validation to catch errors before go-live rather than after.' },
-      { title: 'Train & support', detail: 'Team training and ongoing administration keep adoption high after the initial rollout, not just on launch day.' },
-    ],
-    outcomes: ['Software configured around your process, not the reverse', 'Departments working from one connected system instead of spreadsheets', 'Faster adoption because the team was trained, not just handed a login'],
-    faq: [
-      { q: 'Are you an official Zoho partner?', a: 'We\'ll confirm current certification and partner status directly — ask your Ascent contact for our latest partner documentation.' },
-      { q: 'Can you migrate us from a different CRM to Zoho?', a: 'Yes, including data migration, workflow rebuilding and integration mapping so nothing gets lost in the switch.' },
     ],
   },
   {
@@ -673,8 +578,8 @@ export const services: Service[] = [
   },
 ]
 
-// Representative imagery per category (used on service pages and solution cards).
-// Swap for Ascent's own photography before launch.
+// Topic-specific imagery for solution cards and service pages.
+// Each service has its own visual so the catalogue feels intentional rather than templated.
 const categoryImages: Record<CategoryKey, string> = {
   'it-solutions': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1400&q=80',
   'business-software': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80',
@@ -683,30 +588,32 @@ const categoryImages: Record<CategoryKey, string> = {
 }
 
 const serviceImageOverrides: Partial<Record<string, string>> = {
-  // Reuses only verified, working photo IDs already vetted for this project — swap for
-  // Ascent's own photography before launch (see README).
-  'cybersecurity': 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1400&q=80',
-  'cloud-solutions': 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1400&q=80',
-  'network-connectivity': 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1400&q=80',
-  'backup-disaster-recovery': 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1400&q=80',
-  'ai-agents': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1400&q=80',
-  'generative-ai': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1400&q=80',
-  'ai-assistants': 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1400&q=80',
-  'intelligent-document-processing': 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1400&q=80',
-  'ai-consulting': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1400&q=80',
   'managed-it-services': 'https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=1400&q=80',
-  'it-infrastructure': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1400&q=80',
-  'it-asset-management': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1400&q=80',
-  'endpoint-management': 'https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=1400&q=80',
-  'active-directory-management': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1400&q=80',
-  'it-training': 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1400&q=80',
-  'zoho-solutions': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80',
-  'manageengine-solutions': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80',
-  'software-testing': 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1400&q=80',
-  'test-automation': 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1400&q=80',
-  'api-testing': 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1400&q=80',
-  'performance-testing': 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1400&q=80',
-  'managed-qa': 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1400&q=80',
+  'it-support-helpdesk': 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1400&q=80',
+  'cloud-solutions': 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1400&q=80',
+  'cybersecurity': 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1400&q=80',
+  'it-asset-management': 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1400&q=80',
+  'active-directory-management': 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1400&q=80',
+  'endpoint-management': 'https://images.unsplash.com/photo-1517336714739-489689fd1ca8?w=1400&q=80',
+  'backup-disaster-recovery': 'https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=1400&q=80',
+  'observability-itom': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=90',
+  'it-training': 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1400&q=80',
+  'zoho-solutions': 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1400&q=80',
+  'manageengine-solutions': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&q=80',
+  'crm-implementation': 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1400&q=80',
+  'itsm': 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&q=80',
+  'business-process-automation': 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1400&q=80',
+  'software-integration': 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1400&q=80',
+  'generative-ai': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1400&q=80',
+  'ai-agents': 'https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=1400&q=80',
+  'intelligent-document-processing': 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1400&q=80',
+  'ai-assistants': 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1400&q=80',
+  'ai-consulting': 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1400&q=80',
+  'software-testing': 'https://images.unsplash.com/photo-1516321165247-4aa89a48be28?w=1400&q=80',
+  'test-automation': 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1400&q=80',
+  'api-testing': 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1400&q=80',
+  'performance-testing': 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400&q=80',
+  'managed-qa': 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1400&q=80',
 }
 
 export function getServiceImage(service: Service) {

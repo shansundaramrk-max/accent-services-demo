@@ -19,10 +19,7 @@ export default function Navbar() {
     <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-ink/95 backdrop-blur-xl border-b border-line shadow-lg shadow-black/10' : 'bg-ink'}`}>
       <div className="container-a flex items-center justify-between h-[78px]">
         <Link to="/" className="flex items-center gap-3 text-white group" onClick={() => setOpen(false)}>
-          <span className="relative flex w-9 h-9 items-center justify-center rounded-full border border-white/15 bg-white/[.04]">
-            <span className="w-2.5 h-2.5 rounded-full bg-signal shadow-[0_0_18px_rgba(31,224,168,.55)]" />
-          </span>
-          <span className="font-display text-[17px] tracking-tight">{site.name}</span>
+          <img src="/ascent-logo.svg" alt={site.name} className="w-[170px] h-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-0.5">
