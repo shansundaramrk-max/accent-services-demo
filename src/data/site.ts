@@ -111,6 +111,20 @@ export type NavGroup = {
 
 export const nav: NavGroup[] = [
   {
+    label: 'Web & Digital Growth',
+    to: '/solutions#web-digital-growth',
+    children: [
+      { label: 'Web Design & Development', to: '/solutions/web-design-development' },
+      { label: 'Website Redesign', to: '/solutions/website-redesign' },
+      { label: 'Search Engine Optimisation (SEO)', to: '/solutions/seo' },
+      { label: 'Digital Marketing', to: '/solutions/digital-marketing' },
+      { label: 'Social Media Marketing', to: '/solutions/social-media-marketing' },
+      { label: 'Content Marketing', to: '/solutions/content-marketing' },
+      { label: 'E-commerce Solutions', to: '/solutions/ecommerce-solutions' },
+      { label: 'Branding & Creative', to: '/solutions/branding-creative' },
+    ],
+  },
+  {
     label: 'IT Solutions',
     to: '/solutions#it-solutions',
     children: [

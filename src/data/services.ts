@@ -1,7 +1,7 @@
 export type Capability = { title: string; items: string[] }
 export type FAQ = { q: string; a: string }
 export type ProcessStep = { title: string; detail: string }
-export type CategoryKey = 'it-solutions' | 'business-software' | 'ai-automation' | 'software-engineering'
+export type CategoryKey = 'it-solutions' | 'business-software' | 'ai-automation' | 'software-engineering' | 'web-digital-growth'
 
 export interface Service {
   slug: string
@@ -36,6 +36,11 @@ export const categoryMeta: Record<CategoryKey, { label: string; description: str
     label: 'Software Engineering & QA',
     description: 'Quality built into the release process, so software ships correct the first time.',
     anchor: 'software-engineering',
+  },
+  'web-digital-growth': {
+    label: 'Web & Digital Growth',
+    description: 'Websites, search and digital marketing that turn your online presence into a practical growth channel.',
+    anchor: 'web-digital-growth',
   },
 }
 
@@ -733,6 +738,200 @@ export const services: Service[] = [
       { q: 'How does managed QA fit into an existing agile team?', a: 'QA engineers join your existing ceremonies — sprint planning, standups, retros — as an embedded part of the delivery team, not a separate silo.' },
     ],
   },
+  {
+    slug: 'web-design-development',
+    category: 'web-digital-growth',
+    name: 'Web Design & Development',
+    shortName: 'Web Design',
+    tagline: 'Modern websites designed to look credible and convert attention into action.',
+    summary: 'Strategy, UX, responsive design and development for fast, accessible websites that reflect your brand and make it easy for customers to take the next step.',
+    capabilities: [
+      { title: 'Strategy & UX', items: ['Website discovery', 'Information architecture', 'User journeys', 'Wireframes', 'Conversion planning'] },
+      { title: 'Design', items: ['UI design', 'Responsive layouts', 'Design systems', 'Brand integration', 'Interaction design'] },
+      { title: 'Development', items: ['Responsive front-end', 'CMS integration', 'Forms and lead capture', 'Analytics setup', 'Performance optimisation'] },
+      { title: 'Launch', items: ['SEO foundations', 'Accessibility checks', 'Cross-browser QA', 'Deployment support', 'Post-launch improvements'] },
+    ],
+    process: [
+      { title: 'Discover', detail: 'We clarify your audience, goals, content and conversion priorities before designing screens.' },
+      { title: 'Design', detail: 'We turn the strategy into a clear page structure and visual system, then refine it around real user journeys.' },
+      { title: 'Build', detail: 'The approved design is developed responsively with performance, accessibility and maintainability built in.' },
+      { title: 'Launch & improve', detail: 'After QA and launch, analytics reveal where visitors drop off so the site can keep getting better.' },
+    ],
+    outcomes: ['A stronger first impression', 'Clearer customer journeys and calls to action', 'Faster, mobile-friendly experiences', 'A website built to support measurable growth'],
+    faq: [
+      { q: 'Can you build on our existing CMS?', a: 'Yes. We can work with the platform that already fits your team or recommend a better option based on your content and workflow.' },
+      { q: 'Do you provide the website content too?', a: 'Yes. We can help with content structure, page copy, SEO content and creative assets as part of the project.' },
+    ],
+  },
+  {
+    slug: 'website-redesign',
+    category: 'web-digital-growth',
+    name: 'Website Redesign',
+    shortName: 'Site Redesign',
+    tagline: 'Turn an outdated website into a sharper digital experience.',
+    summary: 'A practical redesign service for businesses whose current site looks dated, performs poorly, is difficult to manage or no longer supports how customers buy.',
+    capabilities: [
+      { title: 'Audit', items: ['UX review', 'Conversion audit', 'Technical review', 'Mobile review', 'Analytics review'] },
+      { title: 'Experience', items: ['Navigation redesign', 'Page hierarchy', 'Conversion paths', 'Mobile-first layouts', 'Accessibility improvements'] },
+      { title: 'Visual refresh', items: ['Updated UI', 'Typography and spacing', 'Component system', 'Brand refinement', 'Imagery direction'] },
+      { title: 'Migration & launch', items: ['Content migration', 'Redirect planning', 'SEO preservation', 'QA', 'Launch support'] },
+    ],
+    process: [
+      { title: 'Audit the current site', detail: 'We identify what should stay, what should change and what is holding the current website back.' },
+      { title: 'Plan the new experience', detail: 'A revised structure and conversion journey gives the redesign a business purpose beyond making the site look newer.' },
+      { title: 'Redesign & rebuild', detail: 'We modernise the interface and rebuild key templates while protecting valuable content and search visibility.' },
+      { title: 'Launch & optimise', detail: 'We test the new site, monitor behaviour after launch and prioritise improvements based on evidence.' },
+    ],
+    outcomes: ['A more modern and credible online presence', 'Better mobile usability', 'Clearer navigation and conversion paths', 'A maintainable website ready for future growth'],
+    faq: [
+      { q: 'Can you redesign the site without changing the platform?', a: 'Yes. If the existing platform is still a good fit, we can redesign and improve it rather than forcing a costly rebuild.' },
+      { q: 'Will our SEO rankings be protected?', a: 'We plan redirects, metadata, page structure and technical SEO carefully to minimise avoidable ranking loss during the redesign.' },
+    ],
+  },
+  {
+    slug: 'seo',
+    category: 'web-digital-growth',
+    name: 'Search Engine Optimisation (SEO)',
+    shortName: 'SEO',
+    tagline: 'Get found by the people already searching for what you offer.',
+    summary: 'Technical, on-page and content SEO focused on qualified visibility, useful traffic and measurable improvements rather than vanity rankings.',
+    capabilities: [
+      { title: 'Technical SEO', items: ['Crawlability', 'Site speed', 'Indexation', 'Structured data', 'Core Web Vitals'] },
+      { title: 'On-page SEO', items: ['Keyword mapping', 'Metadata', 'Internal linking', 'Content optimisation', 'Local SEO'] },
+      { title: 'Content', items: ['Topic strategy', 'Landing pages', 'Search-led articles', 'Content briefs', 'Content refreshes'] },
+      { title: 'Reporting', items: ['Search Console', 'Analytics', 'Visibility tracking', 'Lead attribution', 'Monthly recommendations'] },
+    ],
+    process: [
+      { title: 'Find the opportunities', detail: 'We audit technical health, search demand, competitors and existing content to identify the highest-value opportunities.' },
+      { title: 'Fix the foundations', detail: 'Technical and on-page issues are addressed first so future content has a stronger platform to perform on.' },
+      { title: 'Build authority', detail: 'We create and improve useful pages around topics that match your customers and commercial priorities.' },
+      { title: 'Measure & refine', detail: 'Search visibility, traffic and conversions are reviewed continuously to focus effort where it creates business value.' },
+    ],
+    outcomes: ['More qualified organic traffic', 'Stronger search visibility', 'A scalable content roadmap', 'Better attribution from search to enquiry'],
+    faq: [
+      { q: 'How long does SEO take?', a: 'SEO compounds over time. We establish early technical wins, then build toward larger gains through content and ongoing optimisation.' },
+    ],
+  },
+  {
+    slug: 'digital-marketing',
+    category: 'web-digital-growth',
+    name: 'Digital Marketing',
+    shortName: 'Digital Marketing',
+    tagline: 'Connect your website, campaigns and data into one growth engine.',
+    summary: 'Integrated digital marketing across paid, organic, email and conversion channels, built around clear audiences, offers and measurable outcomes.',
+    capabilities: [
+      { title: 'Paid media', items: ['Google Ads', 'Meta campaigns', 'Retargeting', 'Landing pages', 'Campaign optimisation'] },
+      { title: 'Organic growth', items: ['SEO', 'Content strategy', 'Local visibility', 'Social distribution', 'Digital PR support'] },
+      { title: 'Lifecycle', items: ['Email campaigns', 'Lead nurturing', 'Marketing automation', 'Audience segmentation', 'CRM handoff'] },
+      { title: 'Measurement', items: ['Analytics', 'Conversion tracking', 'Attribution', 'Dashboards', 'Performance reporting'] },
+    ],
+    process: [
+      { title: 'Set the growth plan', detail: 'We define audiences, offers, channels, targets and measurement before spending time or budget on campaigns.' },
+      { title: 'Build campaigns', detail: 'Creative, landing pages, tracking and audience structures are prepared around the customer journey.' },
+      { title: 'Launch & learn', detail: 'Campaigns are monitored closely so budget moves toward the audiences, messages and channels producing results.' },
+      { title: 'Optimise continuously', detail: 'Performance reporting becomes a monthly action plan, not just a report of what happened.' },
+    ],
+    outcomes: ['More qualified leads', 'Better marketing budget efficiency', 'Clear visibility into campaign performance', 'A connected customer acquisition journey'],
+    faq: [
+      { q: 'Do you manage both paid and organic marketing?', a: 'Yes. We can manage a focused channel mix or coordinate multiple channels so paid campaigns and organic activity reinforce each other.' },
+    ],
+  },
+  {
+    slug: 'social-media-marketing',
+    category: 'web-digital-growth',
+    name: 'Social Media Marketing',
+    shortName: 'Social Media',
+    tagline: 'Build a social presence people recognise and trust.',
+    summary: 'Strategy, content planning, creative and campaign management for social channels that support awareness, engagement and demand generation.',
+    capabilities: [
+      { title: 'Strategy', items: ['Channel strategy', 'Audience definition', 'Content pillars', 'Campaign planning'] },
+      { title: 'Content', items: ['Social copy', 'Creative direction', 'Short-form video concepts', 'Content calendars', 'Community content'] },
+      { title: 'Campaigns', items: ['Paid social', 'Lead generation', 'Retargeting', 'Creative testing'] },
+      { title: 'Management', items: ['Scheduling', 'Community response', 'Performance reporting', 'Monthly optimisation'] },
+    ],
+    process: [
+      { title: 'Define the voice', detail: 'We align your channels to your audience, positioning and brand so content feels consistent rather than improvised.' },
+      { title: 'Plan the content', detail: 'A practical content calendar balances educational, proof-led, promotional and brand-building content.' },
+      { title: 'Create & publish', detail: 'Content is produced, approved and scheduled with platform-specific formats in mind.' },
+      { title: 'Learn from performance', detail: 'We use engagement, reach, traffic and leads to improve the next month of content and campaigns.' },
+    ],
+    outcomes: ['A consistent social presence', 'More relevant audience engagement', 'Stronger brand recall', 'Content aligned to business goals'],
+    faq: [
+      { q: 'Which social platforms do you manage?', a: 'We recommend platforms based on where your customers actually spend time rather than trying to maintain every channel.' },
+    ],
+  },
+  {
+    slug: 'content-marketing',
+    category: 'web-digital-growth',
+    name: 'Content Marketing',
+    shortName: 'Content',
+    tagline: 'Useful content that earns attention and supports sales.',
+    summary: 'Content strategy and production that turns your expertise into web pages, articles, case studies and campaigns that help customers choose you.',
+    capabilities: [
+      { title: 'Strategy', items: ['Audience research', 'Topic clusters', 'Editorial planning', 'Content funnels'] },
+      { title: 'Content', items: ['Website copy', 'Blog articles', 'Case studies', 'Guides and resources', 'Email content'] },
+      { title: 'Conversion', items: ['Landing pages', 'Lead magnets', 'Calls to action', 'Content upgrades'] },
+      { title: 'Optimisation', items: ['SEO optimisation', 'Content refreshes', 'Performance analysis', 'Repurposing'] },
+    ],
+    process: [
+      { title: 'Map the audience', detail: 'We identify the questions, objections and decision points that content should address.' },
+      { title: 'Build the editorial plan', detail: 'Topics are prioritised around search demand, expertise and commercial relevance.' },
+      { title: 'Create & publish', detail: 'Content is produced to your brand standards and structured for both readers and search engines.' },
+      { title: 'Repurpose & improve', detail: 'Strong ideas are reused across channels and refreshed as audience behaviour and search demand change.' },
+    ],
+    outcomes: ['A consistent source of useful content', 'More organic discovery opportunities', 'Stronger authority and trust', 'Content that supports sales conversations'],
+    faq: [
+      { q: 'Can you work with our subject-matter experts?', a: 'Yes. We can interview your team and turn their expertise into polished, customer-friendly content.' },
+    ],
+  },
+  {
+    slug: 'ecommerce-solutions',
+    category: 'web-digital-growth',
+    name: 'E-commerce Solutions',
+    shortName: 'E-commerce',
+    tagline: 'A smoother path from product discovery to checkout.',
+    summary: 'E-commerce design, development and optimisation focused on product discovery, trust, checkout experience and sustainable growth.',
+    capabilities: [
+      { title: 'Store experience', items: ['Storefront design', 'Product discovery', 'Search and filtering', 'Mobile UX', 'Checkout UX'] },
+      { title: 'Commerce setup', items: ['Product catalogues', 'Payments', 'Shipping integrations', 'Tax configuration', 'Customer accounts'] },
+      { title: 'Growth', items: ['Conversion optimisation', 'SEO', 'Email journeys', 'Remarketing', 'Analytics'] },
+      { title: 'Operations', items: ['Inventory workflows', 'CRM integration', 'Reporting', 'Maintenance', 'Support'] },
+    ],
+    process: [
+      { title: 'Map the customer journey', detail: 'We identify friction from first visit through product discovery, checkout and post-purchase.' },
+      { title: 'Design the store', detail: 'Navigation, product pages and checkout are designed around clarity, trust and mobile usability.' },
+      { title: 'Integrate & build', detail: 'Commerce systems, payments and operational tools are connected into a reliable workflow.' },
+      { title: 'Optimise conversion', detail: 'Analytics and testing identify opportunities to improve conversion and average order value.' },
+    ],
+    outcomes: ['A clearer shopping experience', 'Reduced checkout friction', 'Better mobile conversion potential', 'Connected commerce and marketing data'],
+    faq: [
+      { q: 'Can you improve an existing online store?', a: 'Yes. We can audit an existing store and focus the project on the highest-impact UX, technical and conversion improvements.' },
+    ],
+  },
+  {
+    slug: 'branding-creative',
+    category: 'web-digital-growth',
+    name: 'Branding & Creative',
+    shortName: 'Branding',
+    tagline: 'Make the brand match the quality of the business behind it.',
+    summary: 'Brand identity refinement and creative direction for businesses that need a more consistent, credible and distinctive presence across digital touchpoints.',
+    capabilities: [
+      { title: 'Brand strategy', items: ['Positioning', 'Audience definition', 'Brand messaging', 'Value proposition'] },
+      { title: 'Identity', items: ['Logo refinement', 'Colour and typography', 'Visual system', 'Brand guidelines'] },
+      { title: 'Creative', items: ['Campaign concepts', 'Digital assets', 'Social templates', 'Presentation design'] },
+      { title: 'Digital rollout', items: ['Website direction', 'Social presence', 'Marketing templates', 'Launch support'] },
+    ],
+    process: [
+      { title: 'Clarify the brand', detail: 'We align positioning, audience and messaging before changing the visual layer.' },
+      { title: 'Create the system', detail: 'The identity is refined into practical visual and verbal rules your team can actually use.' },
+      { title: 'Apply it consistently', detail: 'Key digital and marketing touchpoints are updated so the brand feels coherent everywhere.' },
+      { title: 'Enable the team', detail: 'Guidelines and reusable assets make it easier to keep the brand consistent after launch.' },
+    ],
+    outcomes: ['A more consistent brand presence', 'Clearer positioning', 'Reusable creative assets', 'A visual identity ready for digital growth'],
+    faq: [
+      { q: 'Is this a full rebrand?', a: 'It can be, but it does not have to be. We can refine an existing identity where the fundamentals are strong or build a new system when a bigger change is justified.' },
+    ],
+  }
 ]
 
 // Topic-specific imagery for solution cards and service pages.
@@ -742,6 +941,7 @@ const categoryImages: Record<CategoryKey, string> = {
   'business-software': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80',
   'ai-automation': 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1400&q=80',
   'software-engineering': 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1400&q=80',
+  'web-digital-growth': 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400&q=80',
 }
 
 const serviceImageOverrides: Partial<Record<string, string>> = {
@@ -779,6 +979,14 @@ const serviceImageOverrides: Partial<Record<string, string>> = {
   'api-testing': 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1400&q=80',
   'performance-testing': 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400&q=80',
   'managed-qa': 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1400&q=80',
+  'web-design-development': 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400&q=80',
+  'website-redesign': 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=1400&q=80',
+  'seo': 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1400&q=80',
+  'digital-marketing': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&q=80',
+  'social-media-marketing': 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1400&q=80',
+  'content-marketing': 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1400&q=80',
+  'ecommerce-solutions': 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1400&q=80',
+  'branding-creative': 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1400&q=80',
 }
 
 export function getServiceImage(service: Service) {
