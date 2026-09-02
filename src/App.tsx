@@ -10,6 +10,7 @@ import Industries from './pages/Industries'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
+import CyberRiskAssessment from './pages/CyberRiskAssessment'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -30,6 +31,7 @@ export default function App() {
           <Route path="/industries" element={<Industries />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/cyber-risk-assessment" element={<CyberRiskAssessment />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

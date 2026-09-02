@@ -55,6 +55,7 @@ export default function Navbar() {
               )}
             </div>
           ))}
+          <NavLink to="/cyber-risk-assessment" className="px-3.5 py-2.5 rounded-full text-[13px] text-signal hover:text-white hover:bg-white/[.05] transition-colors">Cyber Risk Assessment</NavLink>
           <NavLink to="/industries" className="px-3.5 py-2.5 rounded-full text-[13px] text-white/70 hover:text-white hover:bg-white/[.05] transition-colors">Industries</NavLink>
           <NavLink to="/about" className="px-3.5 py-2.5 rounded-full text-[13px] text-white/70 hover:text-white hover:bg-white/[.05] transition-colors">About</NavLink>
         </nav>
@@ -88,6 +89,7 @@ export default function Navbar() {
               </div>
             ))}
             <div className="flex gap-5 pt-2 border-t border-line">
+              <Link to="/cyber-risk-assessment" className="text-signal text-sm py-3" onClick={() => setOpen(false)}>Cyber Risk Assessment</Link>
               <Link to="/industries" className="text-white text-sm py-3" onClick={() => setOpen(false)}>Industries</Link>
               <Link to="/about" className="text-white text-sm py-3" onClick={() => setOpen(false)}>About</Link>
             </div>
