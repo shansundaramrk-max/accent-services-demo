@@ -100,6 +100,7 @@ export const industries = [
 export type NavChild = {
   label: string
   to: string
+  children?: NavChild[]
 }
 
 export type NavGroup = {
@@ -114,12 +115,20 @@ export const nav: NavGroup[] = [
     to: '/solutions#it-solutions',
     children: [
       {
-        label: 'Cloud Solutions',
-        to: '/solutions/cloud-solutions',
-      },
-      {
         label: 'Cybersecurity',
         to: '/solutions/cybersecurity',
+        children: [
+          { label: 'Cybersecurity Overview', to: '/solutions/cybersecurity' },
+          { label: 'Essential Eight', to: '/solutions/essential-eight' },
+          { label: 'NIST Cybersecurity Framework', to: '/solutions/nist-cybersecurity-framework' },
+          { label: 'ISO/IEC 27001', to: '/solutions/iso-iec-27001' },
+          { label: 'SOC 2 Readiness', to: '/solutions/soc-2-readiness' },
+          { label: 'CIS Controls', to: '/solutions/cis-controls' },
+          { label: 'Penetration Testing', to: '/solutions/penetration-testing' },
+          { label: 'Vulnerability Assessment', to: '/solutions/vulnerability-assessment' },
+          { label: 'Security Operations (SOC)', to: '/solutions/security-operations-soc' },
+          { label: 'Privileged Access Management', to: '/solutions/privileged-access-management' },
+        ],
       },
       {
         label: 'IT Asset Management',

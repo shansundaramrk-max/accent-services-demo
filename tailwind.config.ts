@@ -18,9 +18,9 @@ export default {
         mutedDark: '#5B6478',
       },
       fontFamily: {
-        display: ['"Space Grotesk"', 'sans-serif'],
-        body: ['"Inter"', 'sans-serif'],
-        mono: ['"IBM Plex Mono"', 'monospace'],
+        display: ['"Inter"', 'system-ui', 'sans-serif'],
+        body: ['"Inter"', 'system-ui', 'sans-serif'],
+        mono: ['"Inter"', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'grid-light': 'linear-gradient(rgba(10,15,29,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(10,15,29,0.05) 1px, transparent 1px)',

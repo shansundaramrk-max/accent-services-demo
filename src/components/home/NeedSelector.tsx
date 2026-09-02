@@ -6,7 +6,7 @@ const needs = [
   ['Keep IT under control', 'Managed IT, helpdesk and infrastructure', '/solutions/managed-it-services'],
   ['Protect the business', 'Cybersecurity, backup and recovery', '/solutions/cybersecurity'],
   ['Remove manual work', 'Automation, AI and connected workflows', '/solutions/ai-agents'],
-  ['Improve the way teams work', 'CRM, ITSM and business software', '/solutions/zoho-solutions'],
+  ['Improve the way teams work', 'ITSM and business software', '/solutions/zoho-solutions'],
   ['Ship with confidence', 'Testing, automation and managed QA', '/solutions/software-testing'],
 ]
 

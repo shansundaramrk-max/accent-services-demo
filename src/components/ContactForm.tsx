@@ -10,10 +10,38 @@ const selectButtonClass =
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState('')
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setSubmitted(true)
+    setSending(true)
+    setError('')
+
+    const endpoint = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL
+    if (!endpoint) {
+      setError('The contact form is not configured yet. Add VITE_GOOGLE_APPS_SCRIPT_URL to the site environment variables.')
+      setSending(false)
+      return
+    }
+
+    const form = e.currentTarget
+    const data = Object.fromEntries(new FormData(form).entries())
+
+    try {
+      await fetch(endpoint, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(data),
+      })
+      setSubmitted(true)
+      form.reset()
+    } catch {
+      setError('We could not send your enquiry. Please try again or contact us directly.')
+    } finally {
+      setSending(false)
+    }
   }
 
   if (submitted) {
@@ -80,13 +108,18 @@ export default function ContactForm() {
           type="submit"
           className="inline-flex items-center justify-center rounded-full bg-signal px-7 py-3.5 text-sm font-semibold text-ink transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-signal/10"
         >
-          Send message
-          <span aria-hidden="true" className="ml-2 text-base">→</span>
+          {sending ? 'Sending…' : 'Send message'}
+          {!sending && <span aria-hidden="true" className="ml-2 text-base">→</span>}
         </button>
         <p className="text-xs leading-5 text-white/35">
           We will only use these details to respond to your enquiry.
         </p>
       </div>
+      {error && (
+        <p role="alert" className="text-sm text-red-300 leading-6">
+          {error}
+        </p>
+      )}
     </form>
   )
 }

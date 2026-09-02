@@ -50,9 +50,9 @@ export default function Hero() {
                 <div className="p-5 sm:p-7">
                   <div className="grid grid-cols-2 gap-3">
                     {[
-                      ['01','Keep running','IT · Cloud · Support'],
+                      ['01','Keep running','IT · Security · Support'],
                       ['02','Keep secure','Security · Backup'],
-                      ['03','Work smarter','CRM · Automation · AI'],
+                      ['03','Work smarter','Business Software · Automation · AI'],
                       ['04','Ship better','QA · Testing · Engineering'],
                     ].map(([n,t,d]) => (
                       <div key={n} className="rounded-2xl border border-white/10 bg-white/[.025] p-4 min-h-[128px] flex flex-col justify-between">

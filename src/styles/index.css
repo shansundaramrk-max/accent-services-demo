@@ -7,7 +7,7 @@ body { @apply bg-paper text-ink font-body antialiased; }
 ::selection { background: #1FE0A8; color: #0A0F1D; }
 
 .container-a { @apply max-w-[1320px] mx-auto px-5 sm:px-7 lg:px-10; }
-.eyebrow { @apply font-mono text-[10px] tracking-[0.2em] uppercase text-signal; }
+.eyebrow { @apply font-body font-semibold text-[11px] tracking-[0.14em] uppercase text-signal; }
 .h-display { @apply font-display font-medium tracking-[-0.035em]; }
 .divider-line { @apply w-full h-px bg-lineDark; }
 .card-hover { transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s ease, box-shadow .35s ease; }

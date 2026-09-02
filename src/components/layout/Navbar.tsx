@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { Menu, X, ChevronDown } from 'lucide-react'
+import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react'
 import { nav, site } from '@/data/site'
 import Button from '@/components/ui/Button'
 
@@ -32,7 +32,23 @@ export default function Navbar() {
                 <div className="absolute top-full left-0 pt-3 w-[330px]">
                   <div className="bg-[#11192b] border border-white/10 rounded-2xl p-2 shadow-2xl shadow-black/30">
                     {group.children.map((c) => (
-                      <NavLink key={c.to} to={c.to} className="block px-4 py-2.5 rounded-xl text-[13px] text-white/65 hover:text-white hover:bg-white/[.06] transition-colors">{c.label}</NavLink>
+                      <div key={c.to} className="relative group/sub">
+                        <NavLink to={c.to} className="flex items-center justify-between px-4 py-2.5 rounded-xl text-[13px] text-white/65 hover:text-white hover:bg-white/[.06] transition-colors">
+                          <span>{c.label}</span>
+                          {c.children && <ChevronRight size={13} className="text-white/35" />}
+                        </NavLink>
+                        {c.children && (
+                          <div className="absolute left-[calc(100%-4px)] top-0 hidden w-[320px] group-hover/sub:block pl-2">
+                            <div className="rounded-2xl border border-white/10 bg-[#11192b] p-2 shadow-2xl shadow-black/30">
+                              {c.children.map((child) => (
+                                <NavLink key={child.to} to={child.to} className="block px-4 py-2.5 rounded-xl text-[13px] text-white/65 hover:text-white hover:bg-white/[.06] transition-colors">
+                                  {child.label}
+                                </NavLink>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -54,7 +70,20 @@ export default function Navbar() {
               <div key={group.label} className="mb-5">
                 <p className="text-white text-sm font-medium mb-2">{group.label}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 pl-3 border-l border-line">
-                  {group.children?.map((c) => <Link key={c.to} to={c.to} className="text-white/60 text-sm py-2 hover:text-white" onClick={() => setOpen(false)}>{c.label}</Link>)}
+                  {group.children?.map((c) => (
+                    <div key={c.to}>
+                      <Link to={c.to} className="text-white/60 text-sm py-2 hover:text-white block" onClick={() => setOpen(false)}>{c.label}</Link>
+                      {c.children && (
+                        <div className="ml-3 pl-3 border-l border-white/10">
+                          {c.children.map((child) => (
+                            <Link key={child.to} to={child.to} className="text-white/45 text-sm py-1.5 block hover:text-white" onClick={() => setOpen(false)}>
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
