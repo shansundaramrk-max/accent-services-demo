@@ -1,12 +1,27 @@
 import { useEffect, useRef, useState } from 'react'
 import { ChevronDown, Check } from 'lucide-react'
 import { services } from '@/data/services'
+import { site } from '@/data/site'
 
 const fieldClass =
   'w-full rounded-xl border border-white/10 bg-[#182238] px-4 py-3.5 text-sm text-white placeholder:text-white/35 outline-none transition-all hover:border-white/20 focus:border-signal/70 focus:bg-[#1b2942] focus:ring-2 focus:ring-signal/10'
 
 const selectButtonClass =
   'flex w-full items-center justify-between rounded-xl border border-white/10 bg-[#182238] px-4 py-3.5 text-left text-sm outline-none transition-all hover:border-white/20 focus:border-signal/70 focus:bg-[#1b2942] focus:ring-2 focus:ring-signal/10'
+
+function buildMailto(data: Record<string, FormDataEntryValue>) {
+  const body = [
+    `Name: ${data.name ?? ''}`,
+    `Company: ${data.company ?? ''}`,
+    `Email: ${data.email ?? ''}`,
+    `Phone: ${data.phone ?? ''}`,
+    `Company size: ${data.companySize ?? ''}`,
+    `Service: ${data.service || 'Not sure yet'}`,
+    '',
+    String(data.requirement ?? ''),
+  ].join('\n')
+  return `mailto:${site.email}?subject=${encodeURIComponent(`Website enquiry from ${data.name ?? ''}`)}&body=${encodeURIComponent(body)}`
+}
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
@@ -18,27 +33,36 @@ export default function ContactForm() {
     setSending(true)
     setError('')
 
-    const endpoint = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL
-    if (!endpoint) {
-      setError('The contact form is not configured yet. Add VITE_GOOGLE_APPS_SCRIPT_URL to the site environment variables.')
+    const form = e.currentTarget
+    const data = Object.fromEntries(new FormData(form).entries())
+
+    // Honeypot: real visitors never fill this hidden field, bots usually do.
+    if (data.website) {
+      setSubmitted(true)
       setSending(false)
       return
     }
 
-    const form = e.currentTarget
-    const data = Object.fromEntries(new FormData(form).entries())
+    const endpoint = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL
+    if (!endpoint) {
+      // Fallback so an enquiry is never lost: open the visitor's mail app addressed to sales.
+      window.location.href = buildMailto(data)
+      setError(`The online form is not connected yet, so we opened your email app instead. You can also write to ${site.email}.`)
+      setSending(false)
+      return
+    }
 
     try {
       await fetch(endpoint, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, contactMethod: 'Email', page: window.location.href }),
       })
       setSubmitted(true)
       form.reset()
     } catch {
-      setError('We could not send your enquiry. Please try again or contact us directly.')
+      setError(`We could not send your enquiry. Please try again or email us at ${site.email}.`)
     } finally {
       setSending(false)
     }
@@ -52,7 +76,7 @@ export default function ContactForm() {
         </div>
         <p className="font-display text-2xl text-white mb-3">Message sent.</p>
         <p className="text-white/55 leading-6 max-w-md mx-auto">
-          Someone from Ascent will get back to you shortly. Thanks for reaching out.
+          Thanks for reaching out. Someone from Ascent will reply to you by email shortly.
         </p>
       </div>
     )
@@ -60,6 +84,10 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-7">
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="website">Leave this field empty</label>
+        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
       <div className="grid sm:grid-cols-2 gap-5">
         <Field label="Full name" name="name" required autoComplete="name" />
         <Field label="Company" name="company" required autoComplete="organization" />
@@ -96,10 +124,8 @@ export default function ContactForm() {
 
       <fieldset>
         <legend className="text-sm font-medium text-white/80 mb-3">Preferred contact method</legend>
-        <div className="grid grid-cols-3 gap-2">
-          <ContactOption name="contactMethod" value="Email" />
-          <ContactOption name="contactMethod" value="Phone" />
-          <ContactOption name="contactMethod" value="Either" defaultChecked />
+        <div className="grid grid-cols-1 gap-2">
+          <ContactOption name="contactMethod" value="Email" defaultChecked />
         </div>
       </fieldset>
 

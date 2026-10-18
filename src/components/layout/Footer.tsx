@@ -16,14 +16,14 @@ export default function Footer() {
 
             <div className="mt-6">
               <p className="font-mono text-[10px] tracking-[.18em] text-white/40">
-                MOBILE
+                EMAIL
               </p>
 
               <a
-                href={`tel:${site.phone.replace(/\s/g, '')}`}
+                href={`mailto:${site.email}`}
                 className="font-display text-lg mt-1 inline-block hover:text-signal transition-colors"
               >
-                {site.phone}
+                {site.email}
               </a>
             </div>
           </div>
@@ -81,15 +81,6 @@ export default function Footer() {
           <p className="text-white/30 text-xs">
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
-
-          <a
-            href={`https://wa.me/${site.whatsappNumber}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/40 text-xs hover:text-white transition-colors"
-          >
-            WhatsApp: {site.phone}
-          </a>
         </div>
       </div>
     </footer>

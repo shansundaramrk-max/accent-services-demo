@@ -1,7 +1,6 @@
 export const site = {
   name: 'Ascent Services',
-  phone: '+61 492 819 854',
-  whatsappNumber: '61492819854',
+  email: 'sales@ascentsservices.com',
 }
 
 export const trustStats = [
@@ -129,10 +128,24 @@ export const nav: NavGroup[] = [
     to: '/solutions#it-solutions',
     children: [
       {
+        label: 'ITSM Solutions',
+        to: '/solutions/itsm',
+        children: [
+          { label: 'ServiceDesk Plus', to: '/solutions/servicedesk-plus' },
+          { label: 'Asset Management', to: '/solutions/it-asset-management' },
+        ],
+      },
+      { label: 'Endpoint Management', to: '/solutions/endpoint-management' },
+      { label: 'Patch Management', to: '/solutions/patch-management' },
+      { label: 'ITOM & Observability', to: '/solutions/observability-itom' },
+      { label: 'Password Management', to: '/solutions/password-management' },
+      { label: 'Log Management', to: '/solutions/log-management' },
+      {
         label: 'Cybersecurity',
         to: '/solutions/cybersecurity',
         children: [
           { label: 'Cybersecurity Overview', to: '/solutions/cybersecurity' },
+          { label: 'Cybersecurity Assessment', to: '/cyber-risk-assessment' },
           { label: 'Essential Eight', to: '/solutions/essential-eight' },
           { label: 'NIST Cybersecurity Framework', to: '/solutions/nist-cybersecurity-framework' },
           { label: 'ISO/IEC 27001', to: '/solutions/iso-iec-27001' },
@@ -144,40 +157,12 @@ export const nav: NavGroup[] = [
           { label: 'Privileged Access Management', to: '/solutions/privileged-access-management' },
         ],
       },
-      {
-        label: 'IT Asset Management',
-        to: '/solutions/it-asset-management',
-      },
-      {
-        label: 'Endpoint Management',
-        to: '/solutions/endpoint-management',
-      },
-      {
-        label: 'Observability & ITOM',
-        to: '/solutions/observability-itom',
-      },
-      {
-        label: 'Active Directory Management',
-        to: '/solutions/active-directory-management',
-      },
-      {
-        label: 'Backup & Disaster Recovery',
-        to: '/solutions/backup-disaster-recovery',
-      },
-      {
-        label: 'ITSM Solutions',
-        to: '/solutions/itsm',
-      },
     ],
   },
   {
     label: 'Business Solutions',
     to: '/solutions#business-software',
     children: [
-      {
-        label: 'ManageEngine Solutions',
-        to: '/solutions/manageengine-solutions',
-      },
       {
         label: 'Business Automation',
         to: '/solutions/business-process-automation',
@@ -242,23 +227,16 @@ export const nav: NavGroup[] = [
   },
 ]
 
+const navChildren = (label: string) => nav.find((g) => g.label === label)?.children ?? []
+
 export const footerLinks = {
-  'IT Solutions': nav[0].children!,
-  'Business Solutions': nav[1].children!,
-  'AI & Automation': nav[2].children!,
-  'Software Engineering': nav[3].children!,
+  'IT Solutions': navChildren('IT Solutions'),
+  'Business Solutions': navChildren('Business Solutions'),
+  'AI & Automation': navChildren('AI & Automation'),
+  'Software Engineering': navChildren('Software Engineering'),
   Company: [
-    {
-      label: 'About Ascent',
-      to: '/about',
-    },
-    {
-      label: 'Industries',
-      to: '/industries',
-    },
-    {
-      label: 'Contact',
-      to: '/contact',
-    },
+    { label: 'About Ascent', to: '/about' },
+    { label: 'Industries', to: '/industries' },
+    { label: 'Contact', to: '/contact' },
   ],
 }
