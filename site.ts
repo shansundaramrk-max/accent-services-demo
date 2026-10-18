@@ -144,6 +144,7 @@ export const nav: NavGroup[] = [
         label: 'Cybersecurity',
         to: '/solutions/cybersecurity',
         children: [
+          { label: 'Cybersecurity Assessment', to: '/cyber-risk-assessment' },
           { label: 'Essential Eight', to: '/solutions/essential-eight' },
           { label: 'Penetration Testing', to: '/solutions/penetration-testing' },
           { label: 'Vulnerability Assessment', to: '/solutions/vulnerability-assessment' },
