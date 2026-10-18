@@ -20,31 +20,62 @@ function doPost(e) {
     const name = clean_(d.name), company = clean_(d.company), email = clean_(d.email);
     if (!name || !email) return reply_({ ok: false, error: 'Missing name or email' });
 
+    const when = Utilities.formatDate(new Date(), 'Australia/Sydney', "EEE d MMM yyyy, h:mm a 'AEST/AEDT'");
+    const service = clean_(d.service) || 'Not sure yet';
     const rows = [
-      ['Name', name],
-      ['Company', company],
-      ['Email', email],
-      ['Phone', clean_(d.phone)],
-      ['Company size', clean_(d.companySize)],
-      ['Service interested in', clean_(d.service) || 'Not sure yet'],
-      ['Submitted from', clean_(d.page)],
+      ['Full name', name],
+      ['Company', company || '—'],
+      ['Work email', email],
+      ['Phone', clean_(d.phone) || '—'],
+      ['Company size', clean_(d.companySize) || '—'],
+      ['Service interested in', service],
+      ['Submitted from', clean_(d.page) || '—'],
+      ['Received', when],
     ];
     const message = clean_(d.requirement) || '(no message)';
 
-    const text = rows.map(r => r[0] + ': ' + r[1]).join('\n') + '\n\nWhat they want to solve:\n' + message;
+    const text = 'NEW WEBSITE ENQUIRY\n\n' +
+      rows.map(r => r[0] + ': ' + r[1]).join('\n') +
+      '\n\nWhat they want to solve:\n' + message;
+
+    const initials = name.split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+    const detailRows = rows.map((r, i) =>
+      '<tr><td style="padding:14px 0;' + (i ? 'border-top:1px solid #e8edf5;' : '') + 'width:38%;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#7a869a;vertical-align:top">' + esc_(r[0]) + '</td>' +
+      '<td style="padding:14px 0;' + (i ? 'border-top:1px solid #e8edf5;' : '') + 'font-size:15px;color:#0b1426;font-weight:600;word-break:break-word">' +
+      (r[0] === 'Work email' ? '<a href="mailto:' + esc_(r[1]) + '" style="color:#0a7cff;text-decoration:none">' + esc_(r[1]) + '</a>' : esc_(r[1])) +
+      '</td></tr>').join('');
+
     const html =
-      '<div style="font-family:Arial,sans-serif;max-width:600px">' +
-      '<h2 style="margin:0 0 12px">New website enquiry</h2>' +
-      '<table style="border-collapse:collapse;width:100%">' +
-      rows.map(r => '<tr><td style="padding:6px 12px 6px 0;color:#666;white-space:nowrap">' + esc_(r[0]) +
-        '</td><td style="padding:6px 0"><b>' + esc_(r[1]) + '</b></td></tr>').join('') +
-      '</table><h3 style="margin:20px 0 6px">What they want to solve</h3>' +
-      '<p style="white-space:pre-wrap;margin:0">' + esc_(message) + '</p></div>';
+      '<div style="margin:0;padding:32px 12px;background:#eef2f8;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,Arial,sans-serif">' +
+      '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px;margin:0 auto">' +
+        '<tr><td style="background:linear-gradient(135deg,#0b1426,#16284d);border-radius:20px 20px 0 0;padding:32px 36px">' +
+          '<div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6ee7c8;font-weight:700">Ascent Services</div>' +
+          '<div style="font-size:26px;line-height:1.25;color:#ffffff;font-weight:700;margin-top:10px">New website enquiry</div>' +
+          '<div style="font-size:14px;color:#a9b6cf;margin-top:6px">' + esc_(when) + '</div>' +
+        '</td></tr>' +
+        '<tr><td style="background:#ffffff;padding:32px 36px">' +
+          '<table role="presentation" cellspacing="0" cellpadding="0" style="margin-bottom:24px"><tr>' +
+            '<td style="width:52px;height:52px;border-radius:26px;background:#0a7cff;color:#fff;text-align:center;font-weight:700;font-size:18px">' + esc_(initials) + '</td>' +
+            '<td style="padding-left:14px"><div style="font-size:18px;font-weight:700;color:#0b1426">' + esc_(name) + '</div>' +
+            '<div style="font-size:14px;color:#5b6679">' + esc_(company || email) + '</div></td>' +
+          '</tr></table>' +
+          '<table role="presentation" width="100%" cellspacing="0" cellpadding="0">' + detailRows + '</table>' +
+          '<div style="margin-top:28px;padding:20px 22px;background:#f5f8fd;border-left:4px solid #0a7cff;border-radius:10px">' +
+            '<div style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#7a869a;margin-bottom:8px">What they want to solve</div>' +
+            '<div style="font-size:15px;line-height:1.65;color:#0b1426;white-space:pre-wrap">' + esc_(message) + '</div>' +
+          '</div>' +
+          '<div style="margin-top:28px"><a href="mailto:' + esc_(email) + '?subject=' + encodeURIComponent('Re: Your enquiry to Ascent Services') + '" ' +
+            'style="display:inline-block;background:#0a7cff;color:#ffffff;text-decoration:none;font-weight:600;font-size:15px;padding:13px 26px;border-radius:999px">Reply to ' + esc_(name.split(' ')[0]) + ' &rarr;</a></div>' +
+        '</td></tr>' +
+        '<tr><td style="background:#f5f8fd;border-radius:0 0 20px 20px;padding:18px 36px;font-size:12px;color:#7a869a">' +
+          'Sent automatically from the Ascent Services website contact form. Hitting Reply also answers the enquirer.' +
+        '</td></tr>' +
+      '</table></div>';
 
     MailApp.sendEmail({
       to: TO_EMAIL,
       replyTo: email,                       // hitting Reply answers the enquirer
-      subject: 'Website enquiry: ' + name + (company ? ' (' + company + ')' : ''),
+      subject: 'New enquiry: ' + name + (company ? ' (' + company + ')' : '') + ' · ' + service,
       body: text,
       htmlBody: html,
       name: 'Ascent Services Website',
