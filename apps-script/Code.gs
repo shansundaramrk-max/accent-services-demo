@@ -27,7 +27,6 @@ function doPost(e) {
       ['Phone', clean_(d.phone)],
       ['Company size', clean_(d.companySize)],
       ['Service interested in', clean_(d.service) || 'Not sure yet'],
-      ['Preferred contact', 'Email'],
       ['Submitted from', clean_(d.page)],
     ];
     const message = clean_(d.requirement) || '(no message)';

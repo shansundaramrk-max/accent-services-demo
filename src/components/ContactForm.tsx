@@ -3,6 +3,11 @@ import { ChevronDown, Check } from 'lucide-react'
 import { services } from '@/data/services'
 import { site } from '@/data/site'
 
+// Deployed Google Apps Script that emails sales@ascentsservices.com.
+// The VITE_ variable overrides it if you ever redeploy the script.
+const DEFAULT_ENDPOINT =
+  'https://script.google.com/macros/s/AKfycbx1DGbSRuaXJX1H0VOMi1wqhNcoe6oiPv8ubDojSjHCDHVeJgboT1bMaC7HcrTUYHYW/exec'
+
 const fieldClass =
   'w-full rounded-xl border border-white/10 bg-[#182238] px-4 py-3.5 text-sm text-white placeholder:text-white/35 outline-none transition-all hover:border-white/20 focus:border-signal/70 focus:bg-[#1b2942] focus:ring-2 focus:ring-signal/10'
 
@@ -43,11 +48,11 @@ export default function ContactForm() {
       return
     }
 
-    const endpoint = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL
+    const endpoint = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL || DEFAULT_ENDPOINT
     if (!endpoint) {
       // Fallback so an enquiry is never lost: open the visitor's mail app addressed to sales.
       window.location.href = buildMailto(data)
-      setError(`The online form is not connected yet, so we opened your email app instead. You can also write to ${site.email}.`)
+      setError(`We opened your email app so you can send this to ${site.email}.`)
       setSending(false)
       return
     }
@@ -57,7 +62,7 @@ export default function ContactForm() {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify({ ...data, contactMethod: 'Email', page: window.location.href }),
+        body: JSON.stringify({ ...data, page: window.location.href }),
       })
       setSubmitted(true)
       form.reset()
@@ -121,13 +126,6 @@ export default function ContactForm() {
           className={`${fieldClass} resize-y min-h-[140px] leading-6`}
         />
       </div>
-
-      <fieldset>
-        <legend className="text-sm font-medium text-white/80 mb-3">Preferred contact method</legend>
-        <div className="grid grid-cols-1 gap-2">
-          <ContactOption name="contactMethod" value="Email" defaultChecked />
-        </div>
-      </fieldset>
 
       <div className="pt-1 flex flex-col sm:flex-row sm:items-center gap-4">
         <button
@@ -300,30 +298,5 @@ function OptionButton({
       <span className={muted && !selected ? 'text-white/40' : ''}>{label}</span>
       {selected && <Check size={16} className="text-signal" aria-hidden="true" />}
     </button>
-  )
-}
-
-function ContactOption({
-  name,
-  value,
-  defaultChecked = false,
-}: {
-  name: string
-  value: string
-  defaultChecked?: boolean
-}) {
-  return (
-    <label className="cursor-pointer">
-      <input
-        type="radio"
-        name={name}
-        value={value}
-        defaultChecked={defaultChecked}
-        className="peer sr-only"
-      />
-      <span className="flex items-center justify-center rounded-xl border border-white/10 bg-white/[.035] px-3 py-3 text-sm text-white/55 transition-all peer-checked:border-signal/60 peer-checked:bg-signal/10 peer-checked:text-white hover:bg-white/[.06]">
-        {value}
-      </span>
-    </label>
   )
 }
